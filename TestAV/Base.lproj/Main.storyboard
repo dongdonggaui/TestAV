@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5056" systemVersion="13D65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="vXZ-lx-hvc">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="ufC-wZ-h7g">
+            <objects>
+                <viewController id="vXZ-lx-hvc" customClass="TAViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="jyV-Pf-zRb"/>
+                        <viewControllerLayoutGuide type="bottom" id="2fi-mo-0CV"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="kh9-bI-dsS">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="J0b-Ta-RNf">
+                                <rect key="frame" x="20" y="84" width="214" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="214" id="4eb-J0-snw"/>
+                                    <constraint firstAttribute="height" constant="30" id="DxY-1E-Mvf"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="l5K-X0-iod">
+                                <rect key="frame" x="264" y="84" width="30" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="30" id="eOU-9k-MeY"/>
+                                    <constraint firstAttribute="height" constant="30" id="lmq-tn-8cl"/>
+                                </constraints>
+                                <state key="normal" title="转换">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xMY-k2-EaS">
+                                <rect key="frame" x="124" y="122" width="72" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="FVu-gU-AVP"/>
+                                    <constraint firstAttribute="width" constant="72" id="Q2F-Ih-dOa"/>
+                                </constraints>
+                                <state key="normal" title="播放">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Qvg-JC-G1e" customClass="HLYVideoPlayView">
+                                <rect key="frame" x="20" y="160" width="280" height="210"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="210" id="nKD-UI-eLO"/>
+                                    <constraint firstAttribute="width" constant="280" id="pEr-Xl-n2w"/>
+                                </constraints>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="o51-j7-Wei">
+                                <rect key="frame" x="20" y="46" width="60" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="60" id="dhQ-BW-IHJ"/>
+                                    <constraint firstAttribute="height" constant="30" id="fDy-xS-eHZ"/>
+                                </constraints>
+                                <state key="normal" title="选取照片">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="212" translatesAutoresizingMaskIntoConstraints="NO" id="P74-uS-CQl">
+                                <rect key="frame" x="88" y="50" width="212" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" placeholder="YES" id="RXw-F8-pu1"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="centerX" secondItem="Qvg-JC-G1e" secondAttribute="centerX" id="44B-cJ-caU"/>
+                            <constraint firstItem="l5K-X0-iod" firstAttribute="centerY" secondItem="J0b-Ta-RNf" secondAttribute="centerY" id="5g8-lP-ndT"/>
+                            <constraint firstItem="l5K-X0-iod" firstAttribute="leading" secondItem="J0b-Ta-RNf" secondAttribute="trailing" constant="30" id="9ss-Y3-D85"/>
+                            <constraint firstItem="Qvg-JC-G1e" firstAttribute="top" secondItem="xMY-k2-EaS" secondAttribute="bottom" constant="8" id="KQW-XO-fLK"/>
+                            <constraint firstItem="o51-j7-Wei" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="26" id="Olh-QU-n3V"/>
+                            <constraint firstItem="P74-uS-CQl" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="30" id="SmP-av-JsD"/>
+                            <constraint firstItem="xMY-k2-EaS" firstAttribute="top" secondItem="J0b-Ta-RNf" secondAttribute="bottom" constant="8" id="VDi-DV-bMc"/>
+                            <constraint firstItem="J0b-Ta-RNf" firstAttribute="top" secondItem="P74-uS-CQl" secondAttribute="bottom" constant="13" id="ZNg-3x-xed"/>
+                            <constraint firstItem="J0b-Ta-RNf" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" constant="20" id="dw4-7P-Qgx"/>
+                            <constraint firstItem="o51-j7-Wei" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" constant="20" id="dxQ-Aq-D3S"/>
+                            <constraint firstAttribute="trailing" secondItem="P74-uS-CQl" secondAttribute="trailing" constant="20" id="eNH-Xe-Msg"/>
+                            <constraint firstItem="P74-uS-CQl" firstAttribute="leading" secondItem="o51-j7-Wei" secondAttribute="trailing" constant="8" id="kme-Eu-TvU"/>
+                            <constraint firstItem="xMY-k2-EaS" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" constant="124" id="tDf-4r-tre"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="button" destination="l5K-X0-iod" id="a0L-W8-buM"/>
+                        <outlet property="pathLabel" destination="P74-uS-CQl" id="c3O-Hb-d5G"/>
+                        <outlet property="pickerButton" destination="o51-j7-Wei" id="7wU-sV-oTc"/>
+                        <outlet property="playButton" destination="xMY-k2-EaS" id="3Se-gT-MwR"/>
+                        <outlet property="textField" destination="J0b-Ta-RNf" id="NR1-Hc-LTQ"/>
+                        <outlet property="videoView" destination="Qvg-JC-G1e" id="Ogb-dR-ee9"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
+            </objects>
+        </scene>
+    </scenes>
+    <simulatedMetricsContainer key="defaultSimulatedMetrics">
+        <simulatedStatusBarMetrics key="statusBar"/>
+        <simulatedOrientationMetrics key="orientation"/>
+        <simulatedScreenMetrics key="destination" type="retina4"/>
+    </simulatedMetricsContainer>
+</document>

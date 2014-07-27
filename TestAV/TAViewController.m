@@ -11,7 +11,7 @@
 #import "HLYImageVideoMaker.h"
 #import "HLYVideoPlayView.h"
 
-@interface TAViewController () <UIImagePickerControllerDelegate, UINavigationControllerDelegate>
+@interface TAViewController () <UIImagePickerControllerDelegate, UINavigationControllerDelegate, UIAlertViewDelegate>
 
 @property (strong, nonatomic) IBOutlet UITextField *textField;
 @property (strong, nonatomic) IBOutlet UIButton *button;
@@ -19,6 +19,8 @@
 @property (weak, nonatomic) IBOutlet HLYVideoPlayView *videoView;
 @property (weak, nonatomic) IBOutlet UIButton *pickerButton;
 @property (weak, nonatomic) IBOutlet UILabel *pathLabel;
+@property (weak, nonatomic) IBOutlet UILabel *cacheLabel;
+@property (weak, nonatomic) IBOutlet UIButton *clearButton;
 
 @property (nonatomic, strong) NSString *videoPath;
 @property (nonatomic, strong) UIImage *pickerdImage;
@@ -36,6 +38,14 @@
     [self.button addTarget:self action:@selector(convertButtonDidTapped:) forControlEvents:UIControlEventTouchUpInside];
     [self.playButton addTarget:self action:@selector(playeButtonDidTapped:) forControlEvents:UIControlEventTouchUpInside];
     [self.pickerButton addTarget:self action:@selector(pickerButtonDidTapped:) forControlEvents:UIControlEventTouchUpInside];
+    [self.clearButton addTarget:self action:@selector(clearButtonDidTapped:) forControlEvents:UIControlEventTouchUpInside];
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    
+    [self scanCache];
 }
 
 - (void)didReceiveMemoryWarning
@@ -70,6 +80,7 @@
     [HLYImageVideoMaker writeImage:self.pickerdImage withFps:30 duration:5 startRect:CGRectMake(0, 0, 560, 420) endRect:CGRectMake(20, 460, 560, 420) toVideo:imageCache withSize:CGSizeMake(640, 480) complete:^(NSString *path) {
         safeSelf.playButton.enabled = YES;
         safeSelf.videoPath = path;
+        [safeSelf scanCache];
     }];
 }
 
@@ -92,6 +103,75 @@
     [self presentViewController:ipc animated:YES completion:nil];
 }
 
+- (void)clearButtonDidTapped:(UIButton *)sender
+{
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:nil message:@"清除缓存？" delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"确定", nil];
+    [alert show];
+}
+
+- (void)scanCache
+{
+    float cacheSize = [self folderSizeAtPath:[self cachePath]];
+    self.cacheLabel.text = [NSString stringWithFormat:@"缓存大小：%.2f M", cacheSize];
+}
+
+- (void)clearCache
+{
+    NSError *error = nil;
+    NSFileManager* manager = [NSFileManager defaultManager];
+    NSArray *allFiles = [manager contentsOfDirectoryAtPath:[self cachePath] error:&error];
+    if (error) {
+        NSLog(@"get contents error --> %@", error);
+        return;
+    }
+    
+    for (NSString *file in allFiles) {
+        NSLog(@"file path --> %@", file);
+        [manager removeItemAtPath:[[self cachePath] stringByAppendingPathComponent:file] error:&error];
+        if (error) {
+            NSLog(@"remove item error --> %@", error);
+            return;
+        }
+    }
+    
+    [self scanCache];
+}
+
+- (float )folderSizeAtPath:(NSString*) folderPath{
+    NSFileManager* manager = [NSFileManager defaultManager];
+    if (![manager fileExistsAtPath:folderPath]) return 0;
+    NSEnumerator *childFilesEnumerator = [[manager subpathsAtPath:folderPath] objectEnumerator];
+    NSString* fileName;
+    long long folderSize = 0;
+    while ((fileName = [childFilesEnumerator nextObject]) != nil){
+        NSString* fileAbsolutePath = [folderPath stringByAppendingPathComponent:fileName];
+        folderSize += [self fileSizeAtPath:fileAbsolutePath];
+    }
+    return folderSize/(1024.0*1024.0);
+}
+
+//单个文件的大小
+- (long long)fileSizeAtPath:(NSString*) filePath{
+    NSFileManager* manager = [NSFileManager defaultManager];
+    if ([manager fileExistsAtPath:filePath]){
+        return [[manager attributesOfItemAtPath:filePath error:nil] fileSize];
+    }
+    return 0;
+}
+
+- (NSString *)cachePath
+{
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES);
+    NSString *cachesDirectory = [paths lastObject];
+    NSString *imageCache = [cachesDirectory stringByAppendingPathComponent:@"HWDImageCache"];
+    
+    if (![[NSFileManager defaultManager] fileExistsAtPath:imageCache]) {
+        [[NSFileManager defaultManager] createDirectoryAtPath:imageCache withIntermediateDirectories:YES attributes:nil error:nil];
+    }
+    
+    return imageCache;
+}
+
 #pragma mark -
 #pragma mark - ipc delegate
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
@@ -103,6 +183,15 @@
         self.pathLabel.text = url.absoluteString;
     }
     self.button.enabled = self.pickerdImage != nil;
+}
+
+#pragma mark -
+#pragma mark - alert view delegate
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    if (buttonIndex != alertView.cancelButtonIndex) {
+        [self clearCache];
+    }
 }
 
 @end

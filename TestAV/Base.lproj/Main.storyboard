@@ -78,13 +78,37 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="G4W-RC-FYz">
+                                <rect key="frame" x="20" y="378" width="214" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="Bvn-F2-O2k"/>
+                                    <constraint firstAttribute="width" constant="214" id="vHC-Ap-8Yw"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LG2-8u-Zmc">
+                                <rect key="frame" x="240" y="374" width="60" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="EF1-zD-vFU"/>
+                                    <constraint firstAttribute="width" constant="60" id="S8M-LH-iiK"/>
+                                </constraints>
+                                <state key="normal" title="清理缓存">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="centerX" secondItem="Qvg-JC-G1e" secondAttribute="centerX" id="44B-cJ-caU"/>
                             <constraint firstItem="l5K-X0-iod" firstAttribute="centerY" secondItem="J0b-Ta-RNf" secondAttribute="centerY" id="5g8-lP-ndT"/>
                             <constraint firstItem="l5K-X0-iod" firstAttribute="leading" secondItem="J0b-Ta-RNf" secondAttribute="trailing" constant="30" id="9ss-Y3-D85"/>
+                            <constraint firstAttribute="trailing" secondItem="LG2-8u-Zmc" secondAttribute="trailing" constant="20" id="BCj-fP-jSb"/>
                             <constraint firstItem="Qvg-JC-G1e" firstAttribute="top" secondItem="xMY-k2-EaS" secondAttribute="bottom" constant="8" id="KQW-XO-fLK"/>
+                            <constraint firstItem="LG2-8u-Zmc" firstAttribute="top" secondItem="Qvg-JC-G1e" secondAttribute="bottom" constant="4" id="N53-n6-zWb"/>
                             <constraint firstItem="o51-j7-Wei" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="26" id="Olh-QU-n3V"/>
                             <constraint firstItem="P74-uS-CQl" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="30" id="SmP-av-JsD"/>
                             <constraint firstItem="xMY-k2-EaS" firstAttribute="top" secondItem="J0b-Ta-RNf" secondAttribute="bottom" constant="8" id="VDi-DV-bMc"/>
@@ -93,11 +117,15 @@
                             <constraint firstItem="o51-j7-Wei" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" constant="20" id="dxQ-Aq-D3S"/>
                             <constraint firstAttribute="trailing" secondItem="P74-uS-CQl" secondAttribute="trailing" constant="20" id="eNH-Xe-Msg"/>
                             <constraint firstItem="P74-uS-CQl" firstAttribute="leading" secondItem="o51-j7-Wei" secondAttribute="trailing" constant="8" id="kme-Eu-TvU"/>
+                            <constraint firstItem="G4W-RC-FYz" firstAttribute="centerY" secondItem="LG2-8u-Zmc" secondAttribute="centerY" id="mm5-7d-E86"/>
                             <constraint firstItem="xMY-k2-EaS" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" constant="124" id="tDf-4r-tre"/>
+                            <constraint firstItem="G4W-RC-FYz" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" constant="20" id="wYf-f5-kIW"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="button" destination="l5K-X0-iod" id="a0L-W8-buM"/>
+                        <outlet property="cacheLabel" destination="G4W-RC-FYz" id="KkO-6z-t1Y"/>
+                        <outlet property="clearButton" destination="LG2-8u-Zmc" id="usb-ah-bvJ"/>
                         <outlet property="pathLabel" destination="P74-uS-CQl" id="c3O-Hb-d5G"/>
                         <outlet property="pickerButton" destination="o51-j7-Wei" id="7wU-sV-oTc"/>
                         <outlet property="playButton" destination="xMY-k2-EaS" id="3Se-gT-MwR"/>

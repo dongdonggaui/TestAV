@@ -26,6 +26,7 @@
 		06AB5CE81984E68E0061F81A /* HLYImageVideoMaker.m in Sources */ = {isa = PBXBuildFile; fileRef = 06AB5CE71984E68E0061F81A /* HLYImageVideoMaker.m */; };
 		06AB5CEA1984F7B40061F81A /* test.JPG in Resources */ = {isa = PBXBuildFile; fileRef = 06AB5CE91984F7B40061F81A /* test.JPG */; };
 		06AB5CED1984FBCF0061F81A /* HLYVideoPlayView.m in Sources */ = {isa = PBXBuildFile; fileRef = 06AB5CEC1984FBCF0061F81A /* HLYVideoPlayView.m */; };
+		06AB5CEF19851EB60061F81A /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 06AB5CEE19851EB60061F81A /* README.md */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -65,6 +66,7 @@
 		06AB5CE91984F7B40061F81A /* test.JPG */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = test.JPG; sourceTree = "<group>"; };
 		06AB5CEB1984FBCF0061F81A /* HLYVideoPlayView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HLYVideoPlayView.h; sourceTree = "<group>"; };
 		06AB5CEC1984FBCF0061F81A /* HLYVideoPlayView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HLYVideoPlayView.m; sourceTree = "<group>"; };
+		06AB5CEE19851EB60061F81A /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,6 +96,7 @@
 		061262171983B4B400DBD8C6 = {
 			isa = PBXGroup;
 			children = (
+				06AB5CEE19851EB60061F81A /* README.md */,
 				061262291983B4B400DBD8C6 /* TestAV */,
 				061262481983B4B400DBD8C6 /* TestAVTests */,
 				061262221983B4B400DBD8C6 /* Frameworks */,
@@ -251,6 +254,7 @@
 				0612625B1983B6BD00DBD8C6 /* frame2.png in Resources */,
 				0612623C1983B4B400DBD8C6 /* Images.xcassets in Resources */,
 				0612622E1983B4B400DBD8C6 /* InfoPlist.strings in Resources */,
+				06AB5CEF19851EB60061F81A /* README.md in Resources */,
 				06AB5CEA1984F7B40061F81A /* test.JPG in Resources */,
 				0612625A1983B6BD00DBD8C6 /* frame1.png in Resources */,
 				061262371983B4B400DBD8C6 /* Main.storyboard in Resources */,

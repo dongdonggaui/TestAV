@@ -172,17 +172,44 @@
     return imageCache;
 }
 
+- (void)testImageCompressAndScaleWithImage:(UIImage *)image
+{
+    // 原始图片尺寸
+    NSLog(@"image size --> %@", NSStringFromCGSize(image.size));
+    
+    NSData *originData = UIImageJPEGRepresentation(image, 1);
+    
+    // 压缩图片
+    NSData *imageData = UIImageJPEGRepresentation(image, 0.01);
+    
+    // 获取压缩图片
+    UIImage *compressedImage = [[UIImage alloc] initWithData:imageData];
+    
+    NSLog(@"compressed image size --> %@", NSStringFromCGSize(compressedImage.size));
+    NSLog(@"image data size --> %u, before --> %u", imageData.length, originData.length);
+    
+    // 缩放图片
+    UIImage *scaledImage = [[UIImage alloc] initWithData:imageData scale:2];
+    NSLog(@"scaled image size --> %@", NSStringFromCGSize(scaledImage.size));
+}
+
 #pragma mark -
 #pragma mark - ipc delegate
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
 {
-    [picker dismissViewControllerAnimated:YES completion:nil];
-    self.pickerdImage = [info objectForKey:UIImagePickerControllerOriginalImage];
+    UIImage *image = [info objectForKey:UIImagePickerControllerOriginalImage];
+//    [self testImageCompressAndScaleWithImage:image];
+//    return;
+    
+    NSData *imageData = UIImageJPEGRepresentation(image, 0.01);
+    self.pickerdImage = [[UIImage alloc] initWithData:imageData];
     NSURL *url = [info objectForKey:UIImagePickerControllerReferenceURL];
     if (url) {
         self.pathLabel.text = url.absoluteString;
     }
     self.button.enabled = self.pickerdImage != nil;
+    
+    [picker dismissViewControllerAnimated:YES completion:nil];
 }
 
 #pragma mark -

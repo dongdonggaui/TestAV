@@ -71,7 +71,8 @@
             buffer = [self newPixelBufferFromCGImage:[image CGImage] withFrame:CGRectMake(xCell * i + startRect.origin.x, yCell * i + startRect.origin.y, widthCell * i + startRect.size.width, heightCell * i + startRect.size.height)];
             CMTime frameTime = CMTimeMake(i, (int32_t)fps);
             [adaptor appendPixelBuffer:buffer withPresentationTime:frameTime];
-            [NSThread sleepForTimeInterval:0.05];
+            CVPixelBufferRelease(buffer);
+            [NSThread sleepForTimeInterval:0.1];
         }
         
         //    [writerInput markAsFinished];
